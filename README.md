@@ -1,6 +1,8 @@
 # pomodoro-timer
 
-This template should help get you started developing with Vue 3 in Vite.
+A simple pomodoro timer made using vue. Still a WIP but works well for just an pomo timer.
+
+# For contributions,
 
 ## Recommended IDE Setup
 
