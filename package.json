@@ -7,26 +7,19 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "electron:dev": "concurrently \"vite\" \"electron .\"",
+    "electron:dev": "concurrently \"npm run dev\" \"wait-on tcp:5173 && electron .\"",
     "electron:build": "vite build && electron-builder"
   },
-  "build": {
-    "appId": "com.pomodoro.app",
-    "directories": {
-      "output": "dist_electron"
-    },
-    "linux": {
-      "target": [
-        "AppImage",
-        "deb"
-      ],
-      "category": "Utility"
-    },
-    "win": {
-      "target": "nsis"
-    }
+  "dependencies": {
+    "pinia": "^2.1.6",
+    "vue": "^3.3.4"
   },
   "devDependencies": {
-    "concurrently": "^9.1.0"
+    "@vitejs/plugin-vue": "^4.3.4",
+    "concurrently": "^8.2.1",
+    "electron": "^26.2.1",
+    "electron-builder": "^24.6.4",
+    "vite": "^4.4.9",
+    "wait-on": "^7.0.1"
   }
 }
