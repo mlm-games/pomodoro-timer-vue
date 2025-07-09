@@ -1,5 +1,6 @@
 const { app, BrowserWindow, Tray, Menu, nativeImage } = require('electron')
 const path = require('path')
+const isDev = process.env.NODE_ENV === 'development'
 
 let mainWindow
 let tray
@@ -39,7 +40,7 @@ function createWindow() {
     icon: path.join(__dirname, '../public/icon.png')
   })
 
-  if (process.env.NODE_ENV !== 'production') {
+  if (isDev) {
     mainWindow.loadURL('http://localhost:5173')
   } else {
     mainWindow.loadFile(path.join(__dirname, '../dist/index.html'))

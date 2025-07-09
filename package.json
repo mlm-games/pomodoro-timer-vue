@@ -7,8 +7,17 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "electron:dev": "concurrently \"npm run dev\" \"wait-on tcp:5173 && electron .\"",
-    "electron:build": "vite build && electron-builder"
+    "electron:dev": "cross-env NODE_ENV=development concurrently \"npm run dev\" \"wait-on tcp:5173 && electron .\""
+  },
+  "build": {
+    "appId": "com.yourapp.pomodoro",
+    "directories": {
+      "output": "dist_electron"
+    },
+    "files": [
+      "dist/**/*",
+      "electron/**/*"
+    ]
   },
   "dependencies": {
     "pinia": "^2.1.6",
@@ -17,6 +26,7 @@
   "devDependencies": {
     "@vitejs/plugin-vue": "^4.3.4",
     "concurrently": "^8.2.1",
+    "cross-env": "^7.0.3",
     "electron": "^26.2.1",
     "electron-builder": "^24.6.4",
     "vite": "^4.4.9",

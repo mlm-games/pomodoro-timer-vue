@@ -4,7 +4,16 @@ import path from 'path'
 
 export default defineConfig({
   plugins: [vue()],
-  base: process.env.ELECTRON ? './' : '/',
+  base: './',
+  build: {
+    outDir: 'dist',
+    assetsDir: '.',
+    rollupOptions: {
+      output: {
+        format: 'cjs'
+      }
+    }
+  },
   server: {
     port: 5173
   }
